@@ -1,0 +1,7 @@
+.spendingList{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #373737;
+    color: bisque;
+}

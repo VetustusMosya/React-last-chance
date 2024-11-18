@@ -1,0 +1,22 @@
+.spending__item{
+    display: grid;
+    grid-template-columns: 4fr 1fr;
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+    max-width: 500px;
+    width: 100%;
+    padding: 0 1.5rem;
+    justify-content: space-between;
+    border-bottom: 0.1rem solid #7e7161;
+}
+
+
+.spending__item--basic{
+    font-size: 1.3rem;
+    font-weight: bold;
+}
+
+.spending__item p{
+    margin: 0.5rem 0 ;
+}
+    
