@@ -9,7 +9,7 @@
 /coverage
 
 # workspace
-*.code-workspace
+*Format On Save.code-workspace
 
 # production
 /build

@@ -44,9 +44,17 @@ hr {
   border-radius: 5px;
 }
 
+select, input{
+  font-size: inherit;
+  font-family: inherit;
+}
+
 button {
   border: none;
   background: transparent;
+  color: inherit;
+  font-size: inherit;
+  font-family: inherit;
 }
 
 a {

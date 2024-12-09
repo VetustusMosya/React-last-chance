@@ -3,7 +3,6 @@
     grid-template-columns: 4fr 1fr;
     grid-column-gap: 0px;
     grid-row-gap: 0px;
-    max-width: 500px;
     width: 100%;
     padding: 0 1.5rem;
     justify-content: space-between;

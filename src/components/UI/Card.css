@@ -1,4 +1,8 @@
 .card{
     width: 40rem;
-    align-self: center;
+    margin: 1rem 0;
+    padding: 1rem 7rem;
+    align-self: center;    
+    background-color: #373737;
+    border-radius: 1rem;
 }
