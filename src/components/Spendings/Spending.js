@@ -1,7 +1,7 @@
 import "./Spending.css";
 
 function Spending({ spending }) {
-  const { account, money, category, currency, date } = spending;
+  const { account, money, category, currency, date, } = spending;  
 
   return (
     <div className="spending__item">

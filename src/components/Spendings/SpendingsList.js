@@ -4,9 +4,10 @@ import './SpendingList.css'
 
 
 const SpendingsList = (props) => {
+
   return (
     <Card className='spendingList'>
-      {props.spendingList.map(spending => <Spending spending={spending}> </Spending>)}
+      {props.spendingList.map(spending => <Spending spending={spending} key={spending.id.toString()}> </Spending>)}
     </Card>
   )
 }

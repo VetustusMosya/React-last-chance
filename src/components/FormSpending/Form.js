@@ -9,10 +9,10 @@ export const Form = (props) => {
   const dateNow = new Date().toISOString().slice(0, 10);
   const defaultSpening = {
     category: '',
-      money: '',
-      currency: 'belrub',
-      account: 'belbank',
-      date: dateNow,
+    money: '',
+    currency: 'belrub',
+    account: 'belbank',
+    date: dateNow,
   }
   const [spending, inputSpending] = useState(defaultSpening)
 
@@ -26,8 +26,10 @@ export const Form = (props) => {
   }
 
   const submitHandler = (event) => {
-    event.preventDefault();
+    event.preventDefault();    
+    spending.id = Symbol('id');
     props.onSaveSpending(spending);
+    inputSpending(()=>{ return defaultSpening});
   }
 
   const resetHandler = (event) => {    
