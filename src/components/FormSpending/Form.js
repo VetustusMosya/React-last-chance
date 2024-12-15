@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { Card } from "../UI/Card";
 import { Button } from "../UI/Button";
 import { Input } from "../UI/Input";
@@ -10,7 +10,7 @@ export const Form = (props) => {
   const defaultSpening = {
     category: '',
     money: '',
-    currency: 'belrub',
+    // currency: 'belrub',
     account: 'belbank',
     date: dateNow,
   }
@@ -27,7 +27,7 @@ export const Form = (props) => {
 
   const submitHandler = (event) => {
     event.preventDefault();    
-    spending.id = Symbol('id');
+    spending.id =  Date.now().toString(32);
     props.onSaveSpending(spending);
     inputSpending(()=>{ return defaultSpening});
   }
@@ -50,12 +50,12 @@ export const Form = (props) => {
           className={"addSpending__box"}
           name={"account"}          
           value={spending.account}
-          data={["belbank", "prior", "cash", "stash"]}
+          data={["belbank", "prior", "cash",]}
           onChange={getCategoryHandler}
         >
           Account
         </Select>
-        <Select
+        {/* <Select
           className={"addSpending__box"}
           name={"currency"}
           value={spending.currency}
@@ -63,7 +63,7 @@ export const Form = (props) => {
           onChange={getCategoryHandler}
         >
           Currency
-        </Select>
+        </Select> */}
         <Input className={"addSpending__box"} id={"date"} type={"date"} value={spending.date} 
           onChange={getCategoryHandler}>
           Date

@@ -5,8 +5,8 @@ function Spending({ spending }) {
 
   return (
     <div className="spending__item">
-      <p className="category spending__item--basic">{category}</p>
-      <p className="money spending__item--basic">
+      <p className="category basic">{category}</p>
+      <p className="money basic">
         {money} <span>{currency}</span>
       </p>
       <p className="account">{account}</p>

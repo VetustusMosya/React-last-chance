@@ -10,9 +10,9 @@ function App() {
 
   const saveSpendingHandler = (spending) => {
     changeSpending((lastSpendingList)=>{
-      const newSpendingList = [
-        ...lastSpendingList,
+      const newSpendingList = [        
         spending,
+        ...lastSpendingList,
       ];      
       localStorage.setItem('spendingList', JSON.stringify(newSpendingList));
       return newSpendingList; 
@@ -28,8 +28,7 @@ function App() {
       <div className="container">        
         <Form onSaveSpending={saveSpendingHandler} />
         <Button onClick={cleanSpendingList}>Clean list</Button>
-        <SpendingsList spendingList={spendingList}/>
-
+        <SpendingsList spendingList={spendingList} />
       </div> 
        );
 }

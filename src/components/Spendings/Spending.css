@@ -1,6 +1,6 @@
 .spending__item{
     display: grid;
-    grid-template-columns: 4fr 1fr;
+    grid-template-columns: 2fr 1fr;
     grid-column-gap: 0px;
     grid-row-gap: 0px;
     width: 100%;
@@ -10,12 +10,12 @@
 }
 
 
-.spending__item--basic{
+.basic{
     font-size: 1.3rem;
     font-weight: bold;
 }
 
 .spending__item p{
-    margin: 0.5rem 0 ;
+    margin: 0.4rem 0 ;
 }
     
