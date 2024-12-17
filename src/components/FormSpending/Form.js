@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { Card } from "../UI/Card";
 import { Button } from "../UI/Button";
 import { Input } from "../UI/Input";
 import { Select } from "../UI/Select";
