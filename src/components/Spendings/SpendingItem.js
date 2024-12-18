@@ -1,8 +1,8 @@
-import "./Spending.css";
+import "./SpendingItem.css";
 
-function Spending({ spending }) {
-  const { account, money, category, currency, date } = spending;
-
+function SpendingItem({
+  spending: { account, money, category, currency, date },
+}) {
   return (
     <div className="spending__item">
       <p className="category basic">{category}</p>
@@ -15,4 +15,4 @@ function Spending({ spending }) {
   );
 }
 
-export default Spending;
+export default SpendingItem;

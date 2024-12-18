@@ -1,15 +1,10 @@
-import React from "react";
+import "./Input.css";
 
-export const Input = (props) => {
+export const Input = ({ className, children, type, id, value, onChange }) => {
   return (
-    <div className={props.className}>
-      <label htmlFor="">{props.children}</label>
-      <input
-        type={props.type}
-        id={props.id}
-        value={props.value}
-        onChange={props.onChange}
-      />
+    <div className={className}>
+      <label htmlFor="">{children}</label>
+      <input type={type} id={id} value={value} onChange={onChange} />
     </div>
   );
 };

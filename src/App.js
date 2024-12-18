@@ -2,30 +2,31 @@ import "./App.css";
 import SpendingsList from "./components/Spendings/SpendingsList";
 import { useState } from "react";
 import { Button } from "./components/UI/Button";
-import FormWrapper from "./components/FormSpending/FormWrapper";
+import AddSpendingFormWrapper from "./components/FormSpending/AddSpendingFormWrapper";
 
 function App() {
-  const savedList = JSON.parse(localStorage.getItem("spendingList")) ?? [];
-  const [spendingList, changeSpending] = useState(savedList);
+  const savedSpendings = JSON.parse(localStorage.getItem("spendings")) ?? [];
+
+  const [spendings, changeSpendings] = useState(savedSpendings);
 
   const saveSpendingHandler = (spending) => {
-    changeSpending((lastSpendingList) => {
-      const newSpendingList = [spending, ...lastSpendingList];
-      localStorage.setItem("spendingList", JSON.stringify(newSpendingList));
-      return newSpendingList;
+    changeSpendings((lastSpendings) => {
+      const updateSpendings = [spending, ...lastSpendings];
+      localStorage.setItem("spendings", JSON.stringify(updateSpendings));
+      return updateSpendings;
     });
   };
 
-  const cleanSpendingList = () => {
-    localStorage.removeItem("spendingList");
-    changeSpending([]);
+  const cleanSavedSpendings = () => {
+    localStorage.removeItem("spendings");
+    changeSpendings([]);
   };
 
   return (
     <div className="container">
-      <FormWrapper onSaveSpending={saveSpendingHandler} />
-      <Button onClick={cleanSpendingList}>Clean list</Button>
-      <SpendingsList spendingList={spendingList} />
+      <AddSpendingFormWrapper onSaveSpending={saveSpendingHandler} />
+      <Button onClick={cleanSavedSpendings}>Clean list</Button>
+      <SpendingsList spendings={spendings} />
     </div>
   );
 }

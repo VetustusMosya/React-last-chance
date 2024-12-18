@@ -1,13 +1,13 @@
 import "./Button.css";
 
-export const Button = (props) => {
+export const Button = ({ className, onClick, type, children }) => {
   return (
     <button
-      className={(props.className ?? "") + " button"}
-      onClick={props.onClick}
-      type={props.type}
+      className={(className ?? "") + " button"}
+      onClick={onClick}
+      type={type}
     >
-      {props.children}
+      {children}
     </button>
   );
 };

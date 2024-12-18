@@ -2,9 +2,9 @@ import { useState } from "react";
 import { Button } from "../UI/Button";
 import { Input } from "../UI/Input";
 import { Select } from "../UI/Select";
-import "./Form.css";
+import "./AddSpendingForm.css";
 
-export const Form = (props) => {
+export const AddSpendingForm = ({ onSaveSpending, hideForm }) => {
   const dateNow = new Date().toISOString().slice(0, 10);
   const defaultSpening = {
     category: "",
@@ -13,10 +13,11 @@ export const Form = (props) => {
     account: "belbank",
     date: dateNow,
   };
-  const [spending, inputSpending] = useState(defaultSpening);
 
-  const getCategoryHandler = (event) => {
-    inputSpending((lastSpending) => {
+  const [spending, inputValueOfSpending] = useState(defaultSpening);
+
+  const getInputValueHandler = (event) => {
+    inputValueOfSpending((lastSpending) => {
       return {
         ...lastSpending,
         [event.target.id]: event.target.value,
@@ -24,49 +25,52 @@ export const Form = (props) => {
     });
   };
 
-  const submitHandler = (event) => {
+  const submitSpendingHandler = (event) => {
     event.preventDefault();
     spending.id = Date.now().toString(32);
-    props.onSaveSpending(spending);
-    inputSpending(() => {
-      return defaultSpening;
-    });
-    props.onHideForm();
+    onSaveSpending(spending);
+    cleanSpendingForm();
+    hideForm();
   };
 
   const resetHandler = (event) => {
     event.preventDefault();
-    inputSpending(() => {
+    cleanSpendingForm();
+    hideForm();
+  };
+
+  const cleanSpendingForm = () => {
+    inputValueOfSpending(() => {
       return defaultSpening;
     });
   };
 
   return (
-    <form className="addSpending__form" onSubmit={submitHandler}>
+    <form className="addSpending__form" onSubmit={submitSpendingHandler}>
       <Input
-        className={"addSpending__box"}
-        id={"category"}
+        className="addSpending__box"
+        id="category"
         value={spending.category}
-        type={"text"}
-        onChange={getCategoryHandler}
+        type="text"
+        onChange={getInputValueHandler}
       >
         Category
       </Input>
       <Input
-        className={"addSpending__box"}
-        id={"money"}
+        className="addSpending__box"
+        id="money"
         value={spending.money}
-        type={"number"}
-        onChange={getCategoryHandler}
+        type="number"
+        onChange={getInputValueHandler}
       >
         Money
       </Input>
       <Select
-        className={"addSpending__box"}
-        name={"account"}
+        className="addSpending__box"
+        name="account"
         value={spending.account}
-        data={["belbank", "prior", "cash"]}
-        onChange={getCategoryHandler}
+        options={["belbank", "prior", "cash"]}
+        onChange={getInputValueHandler}
       >
         Account
       </Select>
@@ -80,11 +84,11 @@ export const Form = (props) => {
           Currency
         </Select> */}
       <Input
-        className={"addSpending__box"}
-        id={"date"}
-        type={"date"}
+        className="addSpending__box"
+        id="date"
+        type="date"
         value={spending.date}
-        onChange={getCategoryHandler}
+        onChange={getInputValueHandler}
       >
         Date
       </Input>
