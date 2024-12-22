@@ -4,7 +4,7 @@ import { Input } from "../UI/Input";
 import { Select } from "../UI/Select";
 import "./AddSpendingForm.css";
 
-export const AddSpendingForm = ({ onSaveSpending, hideForm, openModal }) => {
+export const AddSpendingForm = ({ onSaveSpending, hideForm }) => {
   const dateNow = new Date().toISOString().slice(0, 10);
   const defaultSpening = {
     category: "",
@@ -27,14 +27,10 @@ export const AddSpendingForm = ({ onSaveSpending, hideForm, openModal }) => {
 
   const submitSpendingHandler = (event) => {
     event.preventDefault();
-    if (spending.category.trim() && spending.money) {
-      spending.id = Date.now().toString(32);
-      onSaveSpending(spending);
-      cleanSpendingForm();
-      hideForm();
-    } else {
-      openModal();
-    }
+    spending.id = Date.now().toString(32);
+    onSaveSpending(spending);
+    cleanSpendingForm();
+    hideForm();
   };
 
   const resetHandler = (event) => {
