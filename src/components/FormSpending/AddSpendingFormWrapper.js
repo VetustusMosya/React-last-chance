@@ -3,7 +3,7 @@ import { Card } from "../UI/Card";
 import { AddSpendingForm } from "./AddSpendingForm";
 import { Button } from "../UI/Button";
 
-const AddSpendingFormWrapper = ({ onSaveSpending }) => {
+const AddSpendingFormWrapper = ({ onSaveSpending, openModal }) => {
   const [isShowForm, invertIsShowForm] = useState(false);
 
   const showAddSpendingForm = () => {
@@ -16,6 +16,7 @@ const AddSpendingFormWrapper = ({ onSaveSpending }) => {
         <AddSpendingForm
           onSaveSpending={onSaveSpending}
           hideForm={showAddSpendingForm}
+          openModal={openModal}
         ></AddSpendingForm>
       </Card>
     );
