@@ -1,0 +1,15 @@
+dialog {
+  padding: 0.5rem;
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin: auto;
+  border: solid;
+  background: white;
+  color: black;
+}
+
+dialog::backdrop {
+  background-color: rgba(255, 1, 1);
+  width: 100%;
+}
