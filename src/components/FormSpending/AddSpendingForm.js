@@ -27,14 +27,29 @@ export const AddSpendingForm = ({ onSaveSpending, hideForm, openModal }) => {
 
   const submitSpendingHandler = (event) => {
     event.preventDefault();
-    if (spending.category.trim() && spending.money) {
-      spending.id = Date.now().toString(32);
+    if (validateSpending(spending)) {
       onSaveSpending(spending);
       cleanSpendingForm();
       hideForm();
-    } else {
-      openModal();
     }
+  };
+
+  const validateSpending = (spending) => {
+    // spending.category.trim() && spending.money
+    const errors = [];
+    if (+spending.money < 1) {
+      spending.money === ""
+        ? errors.push("empty money label")
+        : errors.push("label money can't be negative");
+    }
+    if (spending.category.trim().length === 0) {
+      errors.push("empty category label");
+    }
+    if (errors.length === 0) {
+      return true;
+    }
+    openModal(`Errors:  ${errors.join(` & `)}`);
+    return false;
   };
 
   const resetHandler = (event) => {
