@@ -3,6 +3,7 @@ import { Card } from "../UI/Card";
 import { AddSpendingForm } from "./AddSpendingForm";
 import { Button } from "../UI/Button";
 import { Modal } from "../UI/Modal";
+import { createPortal } from "react-dom";
 
 const AddSpendingFormWrapper = ({ onSaveSpending }) => {
   const [isShowForm, invertIsShowForm] = useState(false);
@@ -11,7 +12,6 @@ const AddSpendingFormWrapper = ({ onSaveSpending }) => {
 
   const showAddSpendingForm = () => {
     invertIsShowForm(() => !isShowForm);
-    changeIsOpenModal(false);
   };
 
   const openModalHendler = (error) => {
@@ -31,9 +31,13 @@ const AddSpendingFormWrapper = ({ onSaveSpending }) => {
           hideForm={showAddSpendingForm}
           openModal={openModalHendler}
         />
-        <Modal isOpen={isOpenModal} openModal={hideModalHendler}>
-          {errorMessage}
-        </Modal>
+        {isOpenModal &&
+          createPortal(
+            <Modal isOpen={isOpenModal} openModal={hideModalHendler}>
+              {errorMessage}
+            </Modal>,
+            document.getElementById("modal")
+          )}
       </Card>
     );
   }

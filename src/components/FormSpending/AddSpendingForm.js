@@ -9,7 +9,6 @@ export const AddSpendingForm = ({ onSaveSpending, hideForm, openModal }) => {
   const defaultSpening = {
     category: "",
     money: "",
-    // currency: 'belrub',
     account: "belbank",
     date: dateNow,
   };
@@ -93,15 +92,6 @@ export const AddSpendingForm = ({ onSaveSpending, hideForm, openModal }) => {
       >
         Account
       </Select>
-      {/* <Select
-          className={"addSpending__box"}
-          name={"currency"}
-          value={spending.currency}
-          data={["belrub", "dollar", "rub"]}          
-          onChange={getCategoryHandler}
-        >
-          Currency
-        </Select> */}
       <Input
         className="addSpending__box"
         id="date"

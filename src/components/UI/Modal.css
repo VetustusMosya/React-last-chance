@@ -1,8 +1,10 @@
 dialog {
   padding: 0.5rem;
-  position: fixed;
+  position: absolute;
   left: 0;
   right: 0;
+  top: 0;
+  bottom: 0;
   margin: auto;
   border: solid;
   background: white;
@@ -10,6 +12,6 @@ dialog {
 }
 
 dialog::backdrop {
-  background-color: rgba(255, 1, 1);
+  background-color: rgba(12, 12, 12, 0.3);
   z-index: 9999;
 }
