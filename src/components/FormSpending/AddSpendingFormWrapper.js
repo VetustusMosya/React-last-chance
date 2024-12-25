@@ -34,7 +34,7 @@ const AddSpendingFormWrapper = ({ onSaveSpending }) => {
         {isOpenModal &&
           createPortal(
             <Modal isOpen={isOpenModal} openModal={hideModalHendler}>
-              {errorMessage}
+              <p>{errorMessage}</p>
             </Modal>,
             document.getElementById("modal")
           )}

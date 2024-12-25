@@ -4,7 +4,6 @@ import React, { useRef, useEffect } from "react";
 
 export const Modal = (props) => {
   const ref = useRef();
-  // const isOpen = props.isOpen ? "open" : "";
 
   useEffect(() => {
     if (props.isOpen) {
@@ -15,13 +14,8 @@ export const Modal = (props) => {
   }, [props.isOpen]);
 
   return (
-    <dialog
-      ref={ref}
-      //  open={isOpen}
-      className="modal"
-      id="pop-up"
-    >
-      <p>{props.children}</p>
+    <dialog ref={ref} className="modal" id="pop-up">
+      {props.children}
       <Button onClick={props.openModal}>Ok</Button>
     </dialog>
   );
