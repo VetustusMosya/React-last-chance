@@ -4,14 +4,14 @@ import { Select } from "../UI/Select.js";
 import "./SpendingList.css";
 import { useState } from "react";
 
-const SpendingsList = (props) => {
+const SpendingsList = ({ spendings }) => {
   const [filter, changeFilter] = useState("All");
 
   const getFilterHandler = (event) => {
     changeFilter(() => event.target.value);
   };
 
-  const filteredSpendings = props.spendings.filter((spending) =>
+  const filteredSpendings = spendings.filter((spending) =>
     filter === "All" ? true : spending.account === filter
   );
 
