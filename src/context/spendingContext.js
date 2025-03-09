@@ -13,10 +13,17 @@ const SpendingContext = createContext({
 export const SpendingConstextProvider = (props) => {
   const [spendings, changeSpendings] = useState([]);
 
-  useEffect(() => {
-    const savedSpendings = JSON.parse(localStorage.getItem("spendings")) ?? [];
-    changeSpendings(savedSpendings);
-  }, []);
+  try {
+    useEffect(() => {
+      const savedSpendings =
+        JSON.parse(localStorage.getItem("spendings")) ?? [];
+      changeSpendings(savedSpendings);
+    }, []);
+  } catch (error) {
+    console.error("Ошибка при загрузке данных:", error);
+  }
+
+  const totalAmount = spendings.reduce((acc, item) => (acc += +item.money), 0);
 
   const saveSpendingHandler = (spending) => {
     spending.id = Date.now().toString(32);
@@ -35,7 +42,7 @@ export const SpendingConstextProvider = (props) => {
   const spendingContext = {
     spendingsList: spendings,
     accounts: [],
-    totalAmount: 0,
+    totalAmount: totalAmount,
     addSpending: saveSpendingHandler,
     removeSpending: () => {},
     cleanSpendingsList: cleanSavedSpendings,
