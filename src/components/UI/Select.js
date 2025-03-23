@@ -11,9 +11,17 @@ export const Select = ({
   return (
     <div className={className}>
       <label htmlFor={name}>{children}</label>
-      <select name={name} value={value} id={name} onChange={onChange}>
+      <select
+        name={name}
+        value={value}
+        id={name}
+        key={name}
+        onChange={onChange}
+      >
         {options.map((option) => (
-          <option value={option}>{option}</option>
+          <option value={option} key={option}>
+            {option}
+          </option>
         ))}
       </select>
     </div>

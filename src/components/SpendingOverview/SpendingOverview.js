@@ -7,9 +7,6 @@ export const SpendingOverview = () => {
   return (
     <Card>
       <h2>Total spendings: {totalAmount}</h2>
-      <h3>Belbank:</h3>
-      <h3>Prior:</h3>
-      <h3>Cash:</h3>
     </Card>
   );
 };
